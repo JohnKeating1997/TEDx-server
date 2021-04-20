@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-13 14:03:25
- * @LastEditTime: 2021-04-20 09:38:06
+ * @LastEditTime: 2021-04-20 09:55:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tedx-server\conf\db.js
@@ -28,7 +28,7 @@ if (env === 'dev') {
     // }
 }
 
-if (env === 'prd') {
+if (env === 'production') {
     MYSQL_CONF = {
         host: 'localhost',
         user: 'root',
