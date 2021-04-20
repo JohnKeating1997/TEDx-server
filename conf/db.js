@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-04-13 14:03:25
+ * @LastEditTime: 2021-04-20 09:38:06
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \tedx-server\conf\db.js
+ */
 const env = process.env.NODE_ENV  // 获取环境参数
 
 // 配置
@@ -8,7 +16,7 @@ if (env === 'dev') {
     MYSQL_CONF = {
         host: 'localhost',
         user: 'root',
-        password: '123456',
+        password: 'Hu_Hong_Hao123',
         port: '3306',
         database: 'tedx_voice' // use tedx_voice
     }
@@ -24,7 +32,7 @@ if (env === 'prd') {
     MYSQL_CONF = {
         host: 'localhost',
         user: 'root',
-        password: '123456',
+        password: 'Hu_Hong_Hao123',
         port: '3306',
         database: 'tedx_voice' // use tedx_voice
     }

@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var formidableMiddleware = require('express-formidable');
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 const submitRouter = require('./routes/submit')
@@ -20,6 +20,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(formidableMiddleware({
+  uploadDir: path.join(__dirname, 'music')
+  // multiples: true, // req.files to be arrays of files
+}))
 // 注册路由
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);
