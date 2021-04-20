@@ -2,7 +2,7 @@
   "apps": {
     "name" : "tedx_server",
     "script" : "bin/www",
-    "watch" : true,
+    "watch" : false,
     "ignore_watch": ["node_modules"],
     "instances" : 2,
     "error_file" : "logs/err.log",
