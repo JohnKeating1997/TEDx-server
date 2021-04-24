@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-13 14:03:25
- * @LastEditTime: 2021-04-25 00:07:23
+ * @LastEditTime: 2021-04-25 00:15:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tedx-server\controller\submit.js
@@ -17,8 +17,8 @@ const saveAudio = async (audioInfo) => {
   console.log('cover', audioInfo.files.cover)
   const audioTmpName = audioInfo.files.audio.name.split('.')
   const audioSuffix = audioTmpName[audioTmpName.length - 1]
-  const coverTmpName = audioInfo.files.cover.name.split('.')
-  const coverSuffix = coverTmpName[coverTmpName.length - 1]
+  const coverTmpName = audioInfo.files.cover ? audioInfo.files.cover.name.split('.') : ''
+  const coverSuffix = audioInfo.files.cover ? coverTmpName[coverTmpName.length - 1] : ''
   // 查询最后一个的id
   console.log('查询前')
   const queryLast = `select id from voice order by id DESC limit 1;`
