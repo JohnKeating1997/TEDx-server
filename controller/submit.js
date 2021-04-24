@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-13 14:03:25
- * @LastEditTime: 2021-04-20 10:37:12
+ * @LastEditTime: 2021-04-24 23:58:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tedx-server\controller\submit.js
@@ -42,7 +42,7 @@ const saveAudio = async (audioInfo) => {
     console.log(err)
   }
   
-  // console.log('re')
+  console.log('re')
   return exec(sql).then((insertResult)=>{
     // console.log('?????')
     // console.log(insertResult)
