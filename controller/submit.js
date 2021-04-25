@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-13 14:03:25
- * @LastEditTime: 2021-04-25 00:15:27
+ * @LastEditTime: 2021-04-25 20:41:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tedx-server\controller\submit.js
@@ -30,7 +30,7 @@ const saveAudio = async (audioInfo) => {
   const nickName = `${audioInfo.fields.nickName}`
   const email = `${audioInfo.fields.email}`
   const createTime = Date.now()
-  const cover = `${lastId}_${nickName}.${coverSuffix}`
+  const cover = audioInfo.files.cover ? `${lastId}_${nickName}.${coverSuffix}` : ''
   const audio = `${lastId}_${nickName}.${audioSuffix}`
   const sql = `
   insert into voice (title,nickname,email,createtime,cover,audio)
@@ -38,7 +38,9 @@ const saveAudio = async (audioInfo) => {
   `
   try {
     fs.rename(audioInfo.files.audio.path, path.join('./','music', audio), function(err){console.log(err)})
-    fs.rename(audioInfo.files.cover.path, path.join('./','cover', cover), function(err){console.log(err)})
+    if(audioInfo.files.cover) {
+      fs.rename(audioInfo.files.cover.path, path.join('./','cover', cover), function(err){console.log(err)})
+    }
   } catch (err) {
     console.log('没存上啊啊啊啊啊啊啊啊啊')
     console.log(err)
