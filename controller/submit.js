@@ -30,8 +30,8 @@ const saveAudio = async (audioInfo) => {
   const nickName = `${audioInfo.fields.nickName}`
   const email = `${audioInfo.fields.email}`
   const createTime = Date.now()
-  const cover = audioInfo.files.cover ? `${lastId}_${nickName}.${coverSuffix}` : ''
-  const audio = `${lastId}_${nickName}.${audioSuffix}`
+  const cover = audioInfo.files.cover ? `${lastId}_${title}_${nickName}.${coverSuffix}` : ''
+  const audio = `${lastId}_${title}_${nickName}.${audioSuffix}`
   const sql = `
   insert into voice (title,nickname,email,createtime,cover,audio)
   values('${title}','${nickName}','${email}',${createTime},'${cover}','${audio}');
