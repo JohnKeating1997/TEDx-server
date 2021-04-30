@@ -1,0 +1,8 @@
+2021-04-29 11:33:38: Error: Request aborted
+    at IncomingMessage.<anonymous> (H:\Coding\frontEnd\tedx-server\node_modules\formidable\lib\incoming_form.js:122:19)
+    at IncomingMessage.emit (events.js:315:20)
+    at abortIncoming (_http_server.js:561:9)
+    at socketOnEnd (_http_server.js:577:5)
+    at Socket.emit (events.js:327:22)
+    at endReadableNT (internal/streams/readable.js:1327:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
