@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-13 14:03:25
- * @LastEditTime: 2021-04-25 20:41:14
+ * @LastEditTime: 2021-04-30 18:38:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tedx-server\controller\submit.js
@@ -12,6 +12,10 @@ const path = require('path')
 const fs = require('fs')
 const { exec } = require('../db/mysql')
 
+const escapeCharacter = (originalStr) => {
+  originalStr = originalStr.replace(/'/,"/'")
+  originalStr = originalStr.replace(new RegExp('/'),"//")
+}
 const saveAudio = async (audioInfo) => {
   console.log('saveAudio')
   console.log('cover', audioInfo.files.cover)
