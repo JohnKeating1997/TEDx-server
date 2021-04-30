@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-13 14:03:25
- * @LastEditTime: 2021-04-30 18:57:09
+ * @LastEditTime: 2021-04-30 19:01:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tedx-server\controller\submit.js
@@ -31,15 +31,15 @@ const saveAudio = async (audioInfo) => {
   console.log('查询后')
   const lastId = lastIdList[0] && lastIdList[0].id ? lastIdList[0].id : 0
   // 存储语句
-  const title = escapeCharacter(`${audioInfo.fields.title}`)
-  const nickName = escapeCharacter(`${audioInfo.fields.nickName}`)
-  const email = escapeCharacter(`${audioInfo.fields.email}`)
+  const title = `${audioInfo.fields.title}`
+  const nickName = `${audioInfo.fields.nickName}`
+  const email = `${audioInfo.fields.email}`
   const createTime = Date.now()
   const cover = audioInfo.files.cover ? `${lastId}_${title}_${nickName}.${coverSuffix}` : ''
   const audio = `${lastId}_${title}_${nickName}.${audioSuffix}`
   const sql = `
   insert into voice (title,nickname,email,createtime,cover,audio)
-  values('${title}','${nickName}','${email}',${createTime},'${cover}','${audio}');
+  values('${escapeCharacter(title)}','${escapeCharacter(nickName)}','${escapeCharacter(email)}',${createTime},'${escapeCharacter(cover)}','${escapeCharacter(audio)}');
   `
   try {
     fs.rename(audioInfo.files.audio.path, path.join('./','music', audio), function(err){console.log(err)})
