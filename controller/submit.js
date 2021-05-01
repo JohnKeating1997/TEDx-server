@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-13 14:03:25
- * @LastEditTime: 2021-04-30 19:19:42
+ * @LastEditTime: 2021-05-01 09:14:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \tedx-server\controller\submit.js
@@ -13,7 +13,7 @@ const fs = require('fs')
 const { exec } = require('../db/mysql')
 
 const escapeCharacter = (originalStr) => {
-  originalStr = originalStr.replace(new RegExp('\\'),"\\\\")
+  // originalStr = originalStr.replace(new RegExp('\\'),"\\\\")
   originalStr = originalStr.replace(/'/,"\\'")
   return originalStr
 }
@@ -37,10 +37,7 @@ const saveAudio = async (audioInfo) => {
   const createTime = Date.now()
   const cover = audioInfo.files.cover ? `${lastId}_${title}_${nickName}.${coverSuffix}` : ''
   const audio = `${lastId}_${title}_${nickName}.${audioSuffix}`
-  const sql = `
-  insert into voice (title,nickname,email,createtime,cover,audio)
-  values('${escapeCharacter(title)}','${escapeCharacter(nickName)}','${escapeCharacter(email)}',${createTime},'${escapeCharacter(cover)}','${escapeCharacter(audio)}');
-  `
+  const sql = `insert into voice (title,nickname,email,createtime,cover,audio) values('${escapeCharacter(title)}','${escapeCharacter(nickName)}','${escapeCharacter(email)}',${createTime},'${escapeCharacter(cover)}','${escapeCharacter(audio)}');`
   try {
     fs.rename(audioInfo.files.audio.path, path.join('./','music', audio), function(err){console.log(err)})
     if(audioInfo.files.cover) {
